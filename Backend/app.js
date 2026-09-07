@@ -94,7 +94,13 @@ app.get("/listings/:id",async(req,res)=>{
     res.render("listings/show.ejs",{listing});
 });
 
-
+//delete route
+app.delete("/listings/:id",async(req,res)=>{
+    let {id}=req.params;
+    const dlt =await Listing.findByIdAndDelete(id);
+    console.log(dlt);
+    res.redirect("/listings");
+});
 
 let port =8080;
 app.listen(port, ()=>{
