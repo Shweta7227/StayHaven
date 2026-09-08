@@ -63,6 +63,8 @@
 
 body{
     font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction:column;
     /* text-align: center; */
 }
 
@@ -83,4 +85,11 @@ body{
     opacity:0.2;
     background-color: white;
     
+}
+.container{
+    flex:1;
+}
+.add-btn{
+    background-color: #fe424d;
+    border:none;
 }
