@@ -88,7 +88,7 @@ app.put("/listings/:id", async (req,res)=>{
     //deconstruct req.body
     await Listing.findByIdAndUpdate(id,{...req.body.listings},{runValidators:true, new:true});
     res.redirect(`/listings/${id}`);
-})
+});
 
 //show route
 app.get("/listings/:id",async(req,res)=>{

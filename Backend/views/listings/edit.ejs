@@ -19,24 +19,23 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Image Link</label>
-                        <input name="listings[image]" value="<%=listing.image%>" type="text" class="form-control">
-                    </div>
+                        <input name="listings[image][url]" value="<%= listing.image?.url || '' %>" type="url" class="form-control" >
                     <div class="row">
                         <div class="mb-3 col-md-4">
                             <label for="title" class="form-label">Price</label>
-                            <input name="listings[price]" placeholder="1200" type="number" class="form-control">
+                            <input name="listings[price]" placeholder="1200" type="number" min="0" class="form-control" required>
 
                         </div>
                         <div class="mb-3 col-md-8">
                             <label for="title" class="form-label">Country</label>
-                            <input name="listings[country]" placeholder="INDIA" type="text" class="form-control">
+                            <input name="listings[country]" value="<%=listing.country%>" type="text" class="form-control" required>
 
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Location</label>
-                        <input name="listings[location]" placeholder="Phodong,Sikkim" type="text" class="form-control">
+                        <input name="listings[location]" value="<%=listing.location%>" type="text" class="form-control">
 
                     </div>
                     <button class="btn btn-dark edit-btn mb-4 ">Updated</button>

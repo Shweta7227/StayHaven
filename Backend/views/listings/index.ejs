@@ -21,7 +21,13 @@
                                 <%= listing.description %>
                                     <br>
 
-                                    <b>&#8377;<%=listing.price.toLocaleString("en-IN")%>/night</b>
+                                    
+                                    <b>
+                                        ₹<%= listing.price != null
+                                            ? listing.price.toLocaleString("en-IN")
+                                            : "Price unavailable" %>/night
+                                    </b>
+
                             </p>
                         </div>
                     </div>

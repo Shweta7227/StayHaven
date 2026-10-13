@@ -10,6 +10,7 @@ const listingSchema = new Schema({
     image:{
         filename:{
             type:String,
+            default: "listingimage"
         },
         url:{
             type: String,
@@ -19,7 +20,11 @@ const listingSchema = new Schema({
             set:(v)=>v===""?"https://unsplash.com/photos/modern-houses-nestled-in-a-lush-green-forest-setting-xsoGuBK_giA":v,
         },       
     },
-    price:Number,
+    price:{
+        type:Number,
+        min:0,
+        required:true,
+    },
     location:String,
     country:String,
 });
