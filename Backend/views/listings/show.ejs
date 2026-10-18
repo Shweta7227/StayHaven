@@ -4,7 +4,7 @@
 
     <div class="col-8 offset-1 mt-3 mb-2">
         <h3>
-            Lisitng Details
+            <b><%=listing.title%></b>
         </h3>
     </div>
 
@@ -16,7 +16,7 @@
 
         <div class="card-body mb-2">
             <p class="card-text">
-                <b><%=listing.title%></b> <br>
+                
                 <%=listing.description%> <br>
                 ₹<%= listing.price != null
                 ? listing.price.toLocaleString("en-IN")
@@ -44,6 +44,26 @@
 
         </form>
 
+    </div>
+        <hr>
+    <div class="col-8 offset-1">
+        <h5><b>Leave a Review</b></h5>
+    </div>
+    <div class="col-8 offset-3">
+       
+        <form action="/listings/<%=listing._id%>/review" method="post">
+            <div class="mb-3 mt-3">
+                <label for="rating"  class="form label">Rating:</label>
+                <input id="rating" type="range" min="1" max="5" name="review[rating]"/>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="cmnt" class="form label">Comment:</label>
+                <div class="col-8 offset-1">
+                    <textarea  id="cmnt" rows="5" cols="40" placeholder="Leave a comment" name="review[comment]"></textarea>
+                </div>
+            </div>
+            <button class="btn btn-dark mb-3 mt-3">Submit</button>
+        </form>
     </div>
 
 </div>

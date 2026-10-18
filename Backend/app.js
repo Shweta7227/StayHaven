@@ -5,6 +5,8 @@ const Listing = require ("./models/listing.js");
 const path = require("path");
 const methodOverride =require("method-override");
 const ejsMate=require("ejs-mate");
+const Review= require("./models/review.js");
+
 //Middleware 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -105,7 +107,21 @@ app.delete("/listings/:id",async(req,res)=>{
     res.redirect("/listings");
 });
 
-let port =8080;
+//Review Route
+app.post("/listings/:id/review",async(req,res)=>{
+ const listing = await Listing.findById(req.params.id);
+ console.log("Our listing id is : ",listing);
+ console.dir(req.body,{depth:null});
+ const newReview= new Review(req.body.review);
+ console.log("Review is : ",newReview);
+ listing.review.push(newReview);
+ await newReview.save();
+ await listing.save();
+ console.log("Review saved");
+ res.redirect(`/listings/${listing._id}`);
+});
+
+let port = 8080;
 app.listen(port, ()=>{
     console.log(`Server is listening to ${port}`); 
 });
