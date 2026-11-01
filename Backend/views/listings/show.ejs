@@ -54,12 +54,12 @@
         <form action="/listings/<%=listing._id%>/review" method="post">
             <div class="mb-3 mt-3">
                 <label for="rating"  class="form label">Rating:</label>
-                <input id="rating" type="range" min="1" max="5" name="review[rating]"/>
+                <input id="rating" type="range" min="1" max="5" name="review[rating]" novalidate class="needs-validation"/>
             </div>
             <div class="mb-3 mt-3">
                 <label for="cmnt" class="form label">Comment:</label>
                 <div class="col-8 offset-1">
-                    <textarea  id="cmnt" rows="5" cols="40" placeholder="Leave a comment" name="review[comment]"></textarea>
+                    <textarea  id="cmnt" rows="5" cols="40" placeholder="Leave a comment" name="review[comment]" novalidate class="needs-validation"></textarea>
                 </div>
             </div>
             <button class="btn btn-dark mb-3 mt-3">Submit</button>
